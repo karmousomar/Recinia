@@ -1,0 +1,140 @@
+﻿@model Recinia.ViewModels.DashboardViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Microsoft.AspNetCore.Identity
+@using Recinia.Entities
+@{
+    Layout = "~/Views/Shared/_LayoutLoggin.cshtml";
+}
+@*<h1 style="margin-top:50px;">Hello every one </h1>*@
+<p style="margin-top:130px;"></p>
+<div class="ui two column doubling stackable grid container">
+    <div class="column">
+        <a class="ui card">
+            <div class="content">
+                <div class="header">Individual</div>
+                <div class="meta">
+                </div>
+                <div class="description">
+                    @foreach (var item in Model.Individuals)
+                    {
+                        <div class="ui list">
+
+                            <input type="hidden" value="@item.IndividualID" />
+                            <div class="item">@item.FullName</div>
+                            <div class="item">@item.DateOfBirth.ToString("yyyy-MM-dd")</div>
+                            <div class="item">@item.Address</div>
+                            <div class="item">@item.City</div>
+                            <div class="item">@item.State</div>
+                            <div class="item">@item.ZipCode</div>
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+            <div class="extra content">
+                <div class="right floated author">
+                    <button class="ui primary button">Edit</button>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="column">
+        <a class="ui card">
+            <div class="content">
+                <div class="header">Organization</div>
+                <div class="meta">
+                </div>
+                <div class="description">
+                    @foreach (var item in Model.Organization)
+                    {
+                        <div class="ui list">
+
+                            <input type="hidden" value="@item.OrganizationID" />
+                            <div class="item">@item.BusinessName</div>
+                            <div class="item">@item.HireDate.ToString("yyyy-MM-dd")</div>
+                            <div class="item">@item.Profession</div>
+                            <div class="item">@item.Address</div>
+                            <div class="item">@item.City</div>
+                            <div class="item">@item.State</div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+            @using (Html.BeginForm())
+            {
+                <div class="extra content">
+                    <form action="/api" method="post">
+                        <div class="right floated author">
+                            <button class="ui primary button" asp-controller="ProfileApi" asp-action="EditOrganization" type="submit">Edit</button>
+                        </div>
+                    </form>
+                </div>
+            }
+            </a>
+    </div>
+    <div class="column">
+        <a class="ui card">
+            <div class="content">
+                <div class="header">Hobbies</div>
+                <div class="meta">
+
+                </div>
+                <div class="description">
+
+                    @foreach (var item in Model.Hobby)
+                    {
+
+                        <input type="hidden" value="@item.HobbieID" />
+                        <span>@item.Name</span>
+                        <div class="ui star rating" data-rating="@item.Rating" data-max-rating="5"></div>
+
+                    }
+                </div>
+            </div>
+            <div class="extra content">
+                <div class="right floated author">
+                    <button class="ui primary button">Edit</button>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="ui card">
+        <div class="content">
+            <div class="right floated meta">14h</div>
+            <img class="ui avatar image" src="~/img/photopng.png"> @UserManager.GetUserName(User)
+        </div>
+        <div class="image">
+            <img>
+        </div>
+        <div class="content">
+            <span class="right floated">
+                <i class="heart outline like icon"></i>
+                17 likes
+            </span>
+            <i class="comment icon"></i>
+            3 comments
+        </div>
+        <div class="extra content">
+            <div class="ui large transparent left icon input">
+                <i class="heart outline icon"></i>
+                <input type="text" placeholder="Add Comment...">
+            </div>
+        </div>
+        <form action="" method="post">
+            <div class="ui teal labeled icon button">
+                Create New Order
+                <i class="add icon"></i>
+            </div>
+        </form>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function () {
+
+        $(".rating").rating();
+    });
+</script>

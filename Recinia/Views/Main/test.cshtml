@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Forgot Password";
+}
+
+<h2>Forgot Password</h2>
+@model ResetPassword
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <legend>Forgot Password Form</legend>
+        <ol>
+            <li>
+                @Html.TextBox("UserName")
+                @Html.LabelFor(m => m.Email, new { style = "color:red" })
+                @Html.TextBox("Pass")
+                @Html.LabelFor(m => m.Password, new { style = "color:red" })
+                @Html.TextBox("Confirm")
+                @Html.LabelFor(m => m.ConfirmPassword, new { style = "color:red" })
+                <span style="color:red;">@TempData["Message"]</span>
+            </li>
+        </ol>
+        <input type="submit" value="Recover" />
+    </fieldset>
+}

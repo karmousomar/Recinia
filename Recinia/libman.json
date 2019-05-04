@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.4.0",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "jquery-validate@1.19.0",
+      "destination": "wwwroot/lib/jquery-validate/"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+    },
+    {
+      "library": "semantic-ui@2.4.1",
+      "destination": "wwwroot/lib/semantic-ui/"
+    },
+    {
+      "library": "angular.js@1.7.8",
+      "destination": "wwwroot/lib-npm/angular.js/"
+    },
+    {
+      "library": "systemjs@3.1.6",
+      "destination": "wwwroot/lib-npm/systemjs/"
+    },
+    {
+      "library": "es6-shim@0.35.5",
+      "destination": "wwwroot/lib-npm/es6-shim/"
+    },
+    {
+      "library": "rxjs@6.5.1",
+      "destination": "wwwroot/lib-npm/rxjs/"
+    }
+  ]
+}

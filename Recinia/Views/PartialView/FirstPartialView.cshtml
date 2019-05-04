@@ -1,0 +1,9 @@
+﻿@*@model Recinia.Views.PartialView.FirstPartialViewModel*@
+
+<h1>My first partial view</h1>
+    <p>This is my view</p>
+@foreach (var item in Model.MyType)
+{
+    <p>@item.MyID</p>
+    <p>@item.Myvalue</p>
+}

@@ -1,0 +1,26 @@
+﻿@*@model IEnumerable<cprojapp.Models.MyData>
+    <h2>Index</h2>
+    <p>Hello from our View Template!</p>
+    @foreach (var item in Model)
+    {
+        <p>@item.MyID</p>
+        <p>@item.Myvalue</p>
+    }
+*@
+
+@*@model cprojapp.ViewModels.FirstViewViewModel*@
+
+@*@foreach (var item in Model.MyType)
+{
+    <p>@item.MyID</p>
+    <p>@item.Myvalue</p>
+}*@
+
+@Html.Partial("~/Views/PartialView/FirstPartialView.cshtml")
+
+
+
+
+@*<p>@Model.MyId</p>
+    <p>@Model.Myvalue</p>
+*@
